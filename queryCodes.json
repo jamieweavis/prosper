@@ -1,0 +1,49 @@
+{
+  "certification": {
+    "Any": "0",
+    "None": "N",
+    "Playmaker": "1",
+    "Acrobat": "2",
+    "Aviator": "3",
+    "Goalkeeper": "4",
+    "Guardian": "5",
+    "Juggler": "6",
+    "Paragon": "7",
+    "Scorer": "8",
+    "Show-off": "9",
+    "Sniper": "10",
+    "Striker": "11",
+    "Sweeper": "12",
+    "Tactician": "13",
+    "Turtle": "14",
+    "Victor": "15"
+  },
+  "paint": {
+    "Any": "0",
+    "None": "N",
+    "Burnt Sienna": "1",
+    "Lime": "2",
+    "Titanium White": "3",
+    "Cobalt": "4",
+    "Crimson": "5",
+    "Forest Green": "6",
+    "Grey": "7",
+    "Orange": "8",
+    "Pink": "9",
+    "Purple": "10",
+    "Saffron": "11",
+    "Sky Blue": "12",
+    "Black": "13"
+  },
+  "platform": {
+    "Any": "0",
+    "Steam": "1",
+    "PlayStation": "2",
+    "Xbox": "3"
+  },
+  "search": {
+    "Any": "0",
+    "Sell": "1",
+    "Buy": "2"
+  }
+}
