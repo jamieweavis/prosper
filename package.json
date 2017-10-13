@@ -1,0 +1,44 @@
+{
+  "name": "prosper",
+  "description": "Rocket League Garage trade aggregation & reporting CLI tool",
+  "version": "0.1.1",
+  "author": "Jamie Straw <me@jamiestraw.com>",
+  "bin": {
+    "prosper": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/jamiestraw/prosper/issues"
+  },
+  "dependencies": {
+    "capitalize": "^1.0.0",
+    "caporal": "^0.7.0",
+    "chalk": "^2.1.0",
+    "jsdom": "^11.3.0",
+    "mathjs": "^3.16.4",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "homepage": "https://github.com/jamiestraw/prosper#readme",
+  "keywords": [
+    "buy",
+    "cli",
+    "garage",
+    "league",
+    "market",
+    "node",
+    "rocket",
+    "sell",
+    "trade",
+    "trading"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiestraw/prosper.git"
+  },
+  "scripts": {
+    "install": "tabtab install",
+    "uninstall": "tabtab uninstall --auto"
+  }
+}
