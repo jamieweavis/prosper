@@ -2,7 +2,7 @@
 
 > 💎 Rocket League Garage trade aggregation & reporting CLI tool
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard) [![npm-downloads](https://img.shields.io/npm/dt/prosper)](https://www.npmjs.com/package/prosper) [![npm-version](https://img.shields.io/npm/v/prosper)](https://www.npmjs.com/package/prosper) [![license](https://img.shields.io/github/license/jamiestraw/prosper)](LICENSE.md)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard) [![npm-downloads](https://img.shields.io/npm/dt/prosper.svg)](https://www.npmjs.com/package/prosper) [![npm-version](https://img.shields.io/npm/v/prosper.svg)](https://www.npmjs.com/package/prosper) [![license](https://img.shields.io/github/license/jamiestraw/prosper.svg)](LICENSE.md)
 
 ## 📦 Install
 
