@@ -38,6 +38,7 @@
     "url": "git+https://github.com/jamiestraw/prosper.git"
   },
   "scripts": {
+    "test": "standard",
     "install": "tabtab install",
     "uninstall": "tabtab uninstall --auto"
   }
