@@ -16,8 +16,7 @@
     "jsdom": "^11.3.0",
     "mathjs": "^3.16.5",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2",
-    "tabtab": "^2.2.2"
+    "request-promise": "^4.2.2"
   },
   "homepage": "https://github.com/jamiestraw/prosper#readme",
   "keywords": [
@@ -39,8 +38,6 @@
     "url": "git+https://github.com/jamiestraw/prosper.git"
   },
   "scripts": {
-    "test": "standard",
-    "install": "tabtab install",
-    "uninstall": "tabtab uninstall --auto"
+    "test": "standard"
   }
 }
