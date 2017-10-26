@@ -1,7 +1,7 @@
 {
   "name": "prosper",
   "description": "Rocket League Garage trade aggregation & reporting CLI tool",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Jamie Straw <me@jamiestraw.com>",
   "bin": {
     "prosper": "./index.js"
