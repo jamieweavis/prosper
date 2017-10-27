@@ -2,6 +2,7 @@
 'use strict'
 
 // Project Dependencies
+const ora = require('ora')
 const math = require('mathjs')
 const JSDOM = require('jsdom').JSDOM
 const chalk = require('chalk')
@@ -39,6 +40,7 @@ function listCategories () {
  * @param {String=} args.category
  */
 function listItems (args) {
+  const spinner = ora('Searching items').start()
   request(baseUrl)
     .then((html) => {
       const document = new JSDOM(html).window.document
@@ -65,6 +67,7 @@ function listItems (args) {
  * @param {Number} options.page
  */
 function sellOffers (args, options) {
+  const spinner = ora('Searching sell offers...').start()
   const queryString = querystring.stringify({
     filterItem: args.itemId,
     filterCertification: queryCodes.certification[options.certification],
@@ -99,11 +102,13 @@ function sellOffers (args, options) {
         if (!price) return // No quantity of keys specified
         prices.push(parseInt(price.innerHTML))
       })
+      if (prices.length === 0) return spinner.fail(chalk.red('No matching sell offers found'))
 
       let title = document.querySelector('option:checked').innerHTML
       if (options.certification !== 'None') title += ` [${options.certification}]`
       if (options.paint !== 'None') title += ` (${options.paint})`
-      logPriceStats(title, prices)
+      spinner.succeed(`Found ${chalk.blue(prices.length)} eligible sell offers for ${chalk.blue(title)}`)
+      logPriceStats(prices)
     })
 }
 
@@ -117,6 +122,7 @@ function sellOffers (args, options) {
  * @param {Number} options.page
  */
 function buyOffers (args, options) {
+  const spinner = ora('Searching buy offers...').start()
   const queryString = querystring.stringify({
     filterItem: args.itemId,
     filterCertification: queryCodes.certification[options.certification],
@@ -152,15 +158,18 @@ function buyOffers (args, options) {
         prices.push(parseInt(price.innerHTML))
       })
 
+      if (prices.length === 0) return spinner.fail(chalk.red('No matching buy offers found'))
+
       let title = document.querySelector('option:checked').innerHTML
       if (options.certification !== 'None') title += ` [${options.certification}]`
       if (options.paint !== 'None') title += ` (${options.paint})`
-      logPriceStats(title, prices)
+      spinner.succeed(`Found ${chalk.blue(prices.length)} eligible buy offers for ${chalk.blue(title)}`)
+      logPriceStats(prices)
     })
 }
 
 /**
- * Display price statistics from array of prices with title
+ * Display statistics from array of prices
  *
  * @param {String} title
  * @param {Number[]} prices
