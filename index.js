@@ -230,20 +230,20 @@ prospect
   .command('sell-offers', 'Display item sell offer statistics')
   .alias('sell')
   .argument('<item-id>', 'Item ID number', /^\d*$/)
-  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
   .option('--certification <name>', 'Specify the item certification', Object.keys(queryCodes.certification), 'None')
   .option('--paint <colour>', 'Specify the item paint colour', Object.keys(queryCodes.paint), 'None')
   .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
+  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
   .action(sellOffers)
 
   // Buy offers
   .command('buy-offers', 'Display item buy offer statistics')
   .alias('buy')
   .argument('<item-id>', 'Item ID number', /^\d*$/)
-  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
   .option('--certification <name>', 'Specify the item certification', Object.keys(queryCodes.certification), 'None')
   .option('--paint <colour>', 'Specify the item paint colour', Object.keys(queryCodes.paint), 'None')
   .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
+  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
   .action(buyOffers)
 
 prospect.parse(process.argv)
