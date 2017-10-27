@@ -47,6 +47,7 @@ function listItems (args) {
       const categorySelector = (args.category) ? `optgroup[label="${args.category}"]` : 'optgroup'
       const categories = document.querySelectorAll(categorySelector)
 
+      spinner.succeed('Successfully retrieved item list')
       categories.forEach(category => {
         console.log(`\n${chalk.blue.underline('ID')}\t${chalk.blue.underline(category.label)}\n`)
         const items = category.querySelectorAll('option')
