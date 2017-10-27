@@ -40,10 +40,5 @@
     "Steam": "1",
     "PlayStation": "2",
     "Xbox": "3"
-  },
-  "search": {
-    "Any": "0",
-    "Sell": "1",
-    "Buy": "2"
   }
 }

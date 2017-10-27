@@ -20,47 +20,47 @@ const queryCodes = require('./queryCodes.json')
 const baseUrl = 'https://rocket-league.com/trading/?'
 
 /**
- * Display list of categories
+ * Display list of items and item modifiers
  */
-function listCategories () {
+function list () {
+  const spinner = ora('Searching for item list').start()
   request(baseUrl)
     .then((html) => {
       const document = new JSDOM(html).window.document
       const categories = document.querySelectorAll('optgroup')
+      const list = {}
 
-      console.log(`\n${chalk.blue.underline('Categories')}\n`)
+      // Append items
       categories.forEach(category => {
-        console.log(category.label)
-      })
-    })
-}
-
-/**
- * Display list of items with options category option to filter to sub-category
- *
- * @param {String=} args.category
- */
-function listItems (args) {
-  const spinner = ora('Searching items').start()
-  request(baseUrl)
-    .then((html) => {
-      const document = new JSDOM(html).window.document
-      const categorySelector = (args.category) ? `optgroup[label="${args.category}"]` : 'optgroup'
-      const categories = document.querySelectorAll(categorySelector)
-
-      spinner.succeed('Successfully retrieved item list')
-      categories.forEach(category => {
-        console.log(`\n${chalk.blue.underline('ID')}\t${chalk.blue.underline(category.label)}\n`)
+        list[category.label] = []
         const items = category.querySelectorAll('option')
-        items.forEach(item => {
-          console.log(`${chalk.dim(item.value)}\t${item.textContent.trim()}`)
-        })
+        items.forEach(item => { list[category.label].push({ id: item.value, name: item.textContent.trim() }) })
       })
+
+      // Append item modifiers
+      Object.keys(queryCodes).forEach(category => {
+        list[capitalize(category)] = []
+        for (const [name, id] of Object.entries(queryCodes[category])) {
+          list[capitalize(category)].push({ id: id, name: name })
+        }
+      })
+
+      spinner.succeed('Successfully retrieved item list\n')
+
+      for (const [category, items] of Object.entries(list)) {
+        console.log(chalk.blue(category))
+        const table = new Table({
+          head: ['ID', 'Name'],
+          style: { head: ['blue'], compact: true }
+        })
+        items.forEach(item => { table.push([item.id, item.name]) })
+        console.log(table.toString())
+      }
     })
 }
 
 /**
- * @TODO: Description
+ * Aggregates sell offers and outputs price statistics
  *
  * @param {Number} args.itemId
  * @param {String} options.certification
@@ -75,7 +75,7 @@ function sellOffers (args, options) {
     filterCertification: queryCodes.certification[options.certification],
     filterPaint: queryCodes.paint[options.paint],
     filterPlatform: queryCodes.platform[options.platform],
-    filterSearchType: queryCodes.search['Sell'],
+    filterSearchType: 1, // Sell
     p: options.page
   })
 
@@ -115,7 +115,7 @@ function sellOffers (args, options) {
 }
 
 /**
- * @TODO: Description
+ * Aggregates buy offers and outputs price statistics
  *
  * @param {Number} args.itemId
  * @param {String} options.certification
@@ -130,7 +130,7 @@ function buyOffers (args, options) {
     filterCertification: queryCodes.certification[options.certification],
     filterPaint: queryCodes.paint[options.paint],
     filterPlatform: queryCodes.platform[options.platform],
-    filterSearchType: queryCodes.search['Buy'],
+    filterSearchType: 2, // Buy
     p: options.page
   })
 
@@ -178,14 +178,10 @@ function buyOffers (args, options) {
 function logPriceStats (prices) {
   const min = math.min(prices)
   const minCount = prices.filter(x => { return x === min }).length
-
   const mean = math.round(math.mean(prices), 2)
-
   const median = math.round(math.median(prices), 2)
-
   const mode = math.mode(prices)
   const modeCount = prices.filter(x => { return x === mode[0] }).length
-
   const max = math.max(prices)
   const maxCount = prices.filter(x => { return x === max }).length
 
@@ -198,7 +194,6 @@ function logPriceStats (prices) {
   }, {
     'Count': [chalk.green(minCount), chalk.grey('----'), chalk.grey('------'), modeCount, chalk.red(maxCount)]
   })
-
   console.log(table.toString())
 }
 
@@ -206,25 +201,10 @@ prospect
   .version(pjson.version)
   .help(`💎  ${capitalize(pjson.name)} - ${pjson.description}`)
 
-  // List Categories
-  .command('list-categories', 'Display list of categories')
-  .alias('categories')
-  .action(listCategories)
-
   // List Items
-  .command('list-items', 'Display list of items')
-  .alias('items')
-  .argument('[category]', 'Display list of items in a specific category')
-  .action(listItems)
-
-  // List Certifications
-  // @TODO: Implement
-
-  // List Paints
-  // @TODO: Implement
-
-  // List Platforms
-  // @TODO: Implement
+  .command('list', 'Display list of items and item modifiers')
+  .alias('ls')
+  .action(list)
 
   // Sell offers
   .command('sell-offers', 'Display item sell offer statistics')
