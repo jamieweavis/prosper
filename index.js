@@ -4,6 +4,7 @@
 // Project Dependencies
 const ora = require('ora')
 const math = require('mathjs')
+const Table = require('cli-table')
 const JSDOM = require('jsdom').JSDOM
 const chalk = require('chalk')
 const prospect = require('caporal')
@@ -172,28 +173,33 @@ function buyOffers (args, options) {
 /**
  * Display statistics from array of prices
  *
- * @param {String} title
  * @param {Number[]} prices
  */
-function logPriceStats (title, prices) {
-  console.log(`\n${chalk.magenta.underline(title)}`)
-  if (prices.length === 0) return console.log(`\n${chalk.red('No matching trade offers found')}`)
-  console.log(`\n${chalk.blue.underline('Stat')}\t${chalk.blue.underline('Value')}\t${chalk.blue.underline('Count')}\n`)
-
+function logPriceStats (prices) {
   const min = math.min(prices)
   const minCount = prices.filter(x => { return x === min }).length
-  console.log(`Min\t${chalk.green(min)}\t${minCount}`)
-  console.log(`Mean\t${math.round(math.mean(prices), 2)}`)
-  console.log(`Median\t${math.round(math.median(prices), 2)}`)
+
+  const mean = math.round(math.mean(prices), 2)
+
+  const median = math.round(math.median(prices), 2)
 
   const mode = math.mode(prices)
   const modeCount = prices.filter(x => { return x === mode[0] }).length
-  console.log(`Mode\t${mode}\t${modeCount}`)
 
   const max = math.max(prices)
   const maxCount = prices.filter(x => { return x === max }).length
-  console.log(`Max\t${chalk.red(math.max(prices))}\t${maxCount}\n`)
-  console.log(`Stats calculated from ${chalk.blue(prices.length)} offers`)
+
+  const table = new Table({
+    head: ['', 'Min', 'Mean', 'Median', 'Mode', 'Max'],
+    style: { head: ['blue'], compact: true }
+  })
+  table.push({
+    'Price': [chalk.green(min), mean, median, mode.toString(), chalk.red(max)]
+  }, {
+    'Count': [chalk.green(minCount), chalk.grey('----'), chalk.grey('------'), modeCount, chalk.red(maxCount)]
+  })
+
+  console.log(table.toString())
 }
 
 prospect
