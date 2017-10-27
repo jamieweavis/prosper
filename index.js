@@ -244,7 +244,6 @@ prospect
   .option('--certification <name>', 'Specify the item certification', Object.keys(queryCodes.certification), 'None')
   .option('--paint <colour>', 'Specify the item paint colour', Object.keys(queryCodes.paint), 'None')
   .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
-  .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
   .action(buyOffers)
 
 prospect.parse(process.argv)
