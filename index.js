@@ -202,28 +202,28 @@ prospect
   .help(`💎  ${capitalize(pjson.name)} - ${pjson.description}`)
 
   // List Items
-  .command('list', 'Display list of items and item modifiers')
+  .command('list', 'Display list of items & modifiers with corresponding IDs')
   .alias('ls')
   .action(list)
 
   // Sell offers
-  .command('sell-offers', 'Display item sell offer statistics')
+  .command('sell-offers', 'Display sell offer prices for the specified <item-id>')
   .alias('sell')
-  .argument('<item-id>', 'Item ID number', /^\d*$/)
-  .option('--certification <name>', 'Specify the item certification', Object.keys(queryCodes.certification), 'None')
-  .option('--paint <colour>', 'Specify the item paint colour', Object.keys(queryCodes.paint), 'None')
-  .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
-  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
+  .argument('<item-id>', 'Unique item ID', /^\d*$/)
+  .option('--certification <name>', 'Item certification tag e.g. "Striker"', Object.keys(queryCodes.certification), 'None')
+  .option('--paint <colour>', 'Item paint colour e.g. "Titanium White"', Object.keys(queryCodes.paint), 'None')
+  .option('--platform <name>', 'Trade platform e.g. "PlayStation"', Object.keys(queryCodes.platform), 'Steam')
+  .option('-p, --page <number>', 'Page number e.g. 2', /^\d*$/, 1)
   .action(sellOffers)
 
   // Buy offers
-  .command('buy-offers', 'Display item buy offer statistics')
+  .command('buy-offers', 'Display buy offer prices for the specified <item-id>')
   .alias('buy')
-  .argument('<item-id>', 'Item ID number', /^\d*$/)
-  .option('--certification <name>', 'Specify the item certification', Object.keys(queryCodes.certification), 'None')
-  .option('--paint <colour>', 'Specify the item paint colour', Object.keys(queryCodes.paint), 'None')
-  .option('--platform <name>', 'Specify the platform', Object.keys(queryCodes.platform), 'Steam')
-  .option('-p, --page <number>', 'Specify the page number', /^\d*$/, 1)
+  .argument('<item-id>', 'Unique item ID', /^\d*$/)
+  .option('--certification <name>', 'Item certification tag e.g. "Striker"', Object.keys(queryCodes.certification), 'None')
+  .option('--paint <colour>', 'Item paint colour e.g. "Titanium White"', Object.keys(queryCodes.paint), 'None')
+  .option('--platform <name>', 'Trade platform e.g. "PlayStation"', Object.keys(queryCodes.platform), 'Steam')
+  .option('-p, --page <number>', 'Page number e.g. 2', /^\d*$/, 1)
   .action(buyOffers)
 
 prospect.parse(process.argv)
