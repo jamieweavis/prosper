@@ -24,58 +24,58 @@ Coming soon™
 
 ### `help`
 
-Outputs detailed usage and help information.
+Display detailed usage and help information
 
 ### `list`
 
 > alias: `ls`
 
-Display list of items & modifiers with corresponding IDs
+Display list of items & item modifiers with corresponding IDs
 
 ### `sell-offers <item-id> [options]`
 
 > alias: `sell`
 
-Display sell offer prices for the specified `<item-id>`
+Display sell offer price statistics for the specified item
 
-- **\<item-id>**: Unique item ID
-- **[options]**:
-    - **--certification \<tag>** - Item certification tag e.g. "Striker" - default: "None"
-    - **--paint \<colour>** - Item paint colour e.g. "Titanium White" - default: "None"
-    - **--platform \<name>** - Trade platform e.g. "PlayStation" - default: "Steam"
-    - **-p, --page \<number>** - Page number e.g. 2 - default: 1
+- `<item-id>` - Item ID
+- `[options]`
+    - `--certification <tag>` - Item certification tag e.g. "Striker" - default: "None"
+    - `--paint <colour>` - Item paint colour e.g. "Titanium White" - default: "None"
+    - `--platform <name>` - Trade platform e.g. "PlayStation" - default: "Steam"
+    - `-p, --page <number>` - Page number e.g. 2 - default: 1
 
 ###### Examples:
 
 ```sh
-# Display sell offer prices for Heatwave (Black Market)
+# Display sell offer price statistics for Heatwave (Black Market)
 $ prosper sell-offers 463
 
-# Display sell offer prices for Octane (Titanium White)
-$ prosper sell-offers 1 --paint="Titanium White"
+# Display sell offer price statistics for Octane (Titanium White)
+$ prosper sell-offers 1 --paint "Titanium White"
 ```
 
 ### `buy-offers <item-id> [options]`
 
 > alias: `buy`
 
-Display buy offer prices for the specified `<item-id>`
+Display buy offer price statistics for the specified item
 
-- **\<item-id>**: Unique item ID
-- **[options]**:
-    - **--certification \<tag>** - Item certification tag e.g. "Striker" - default: "None"
-    - **--paint \<colour>** - Item paint colour e.g. "Titanium White" - default: "None"
-    - **--platform \<name>** - Trade platform e.g. "PlayStation" - default: "Steam"
-    - **-p, --page \<number>** - Page number e.g. 2 - default: 1
+- `<item-id>` - Item ID
+- `[options]`
+    - `--certification <tag>` - Item certification tag e.g. "Striker" - default: "None"
+    - `--paint <colour>` - Item paint colour e.g. "Titanium White" - default: "None"
+    - `--platform <name>` - Trade platform e.g. "PlayStation" - default: "Steam"
+    - `-p, --page <number>` - Page number e.g. 2 - default: 1
 
 ###### Examples:
 
 ```sh
-# Display buy offer prices for Heatwave (Black Market)
+# Display buy offer price statistics for Heatwave (Black Market)
 $ prosper buy-offers 463
 
-# Display buy offer prices for Octane (Titanium White)
-$ prosper buy-offers 1 --paint="Titanium White"
+# Display buy offer price statistics for Octane (Titanium White)
+$ prosper buy-offers 1 --paint "Titanium White"
 ```
 
 ## 🔗 Related

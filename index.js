@@ -202,14 +202,14 @@ prospect
   .help(`💎  ${capitalize(pjson.name)} - ${pjson.description}`)
 
   // List Items
-  .command('list', 'Display list of items & modifiers with corresponding IDs')
+  .command('list', 'Display list of items & item modifiers with corresponding IDs')
   .alias('ls')
   .action(list)
 
   // Sell offers
-  .command('sell-offers', 'Display sell offer prices for the specified <item-id>')
+  .command('sell-offers', 'Display sell offer price statistics for the specified item')
   .alias('sell')
-  .argument('<item-id>', 'Unique item ID', /^\d*$/)
+  .argument('<item-id>', 'Item ID', /^\d*$/)
   .option('--certification <name>', 'Item certification tag e.g. "Striker"', Object.keys(queryCodes.certification), 'None')
   .option('--paint <colour>', 'Item paint colour e.g. "Titanium White"', Object.keys(queryCodes.paint), 'None')
   .option('--platform <name>', 'Trade platform e.g. "PlayStation"', Object.keys(queryCodes.platform), 'Steam')
@@ -217,9 +217,9 @@ prospect
   .action(sellOffers)
 
   // Buy offers
-  .command('buy-offers', 'Display buy offer prices for the specified <item-id>')
+  .command('buy-offers', 'Display buy offer price statistics for the specified item')
   .alias('buy')
-  .argument('<item-id>', 'Unique item ID', /^\d*$/)
+  .argument('<item-id>', 'Item ID', /^\d*$/)
   .option('--certification <name>', 'Item certification tag e.g. "Striker"', Object.keys(queryCodes.certification), 'None')
   .option('--paint <colour>', 'Item paint colour e.g. "Titanium White"', Object.keys(queryCodes.paint), 'None')
   .option('--platform <name>', 'Trade platform e.g. "PlayStation"', Object.keys(queryCodes.platform), 'Steam')
