@@ -16,9 +16,9 @@ $ yarn global add prosper
 $ npm install --global prosper
 ```
 
-## 🖥 Screenshots
+## 🖥 Screenshot
 
-Coming soon™
+<img src="screenshot.png" width="888">
 
 ## 🚀 Commands
 
