@@ -194,7 +194,7 @@ function logPriceStats (prices) {
   table.push({
     'Price': [chalk.green(min), mean, median, mode.toString(), chalk.red(max)]
   }, {
-    'Count': [chalk.green(minCount), chalk.grey('----'), chalk.grey('------'), modeCount, chalk.red(maxCount)]
+    'Count': [minCount, chalk.grey('----'), chalk.grey('------'), modeCount, maxCount]
   })
   console.log(table.toString())
 }
