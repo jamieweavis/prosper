@@ -111,7 +111,7 @@ function sellOffers (args, options) {
       if (options.paint !== 'None') title += ` (${options.paint})`
       spinner.succeed(`Found ${chalk.blue(prices.length)} eligible sell offers for ${chalk.blue(title)}`)
       logPriceStats(prices)
-      console.log(`Trade URL: ${chalk.grey(baseUrl + queryString)}`)
+      console.log(chalk.grey(baseUrl + queryString))
     })
 }
 
@@ -168,7 +168,7 @@ function buyOffers (args, options) {
       if (options.paint !== 'None') title += ` (${options.paint})`
       spinner.succeed(`Found ${chalk.blue(prices.length)} eligible buy offers for ${chalk.blue(title)}`)
       logPriceStats(prices)
-      console.log(`Trade URL: ${chalk.grey(baseUrl + queryString)}`)
+      console.log(chalk.grey(baseUrl + queryString))
     })
 }
 
