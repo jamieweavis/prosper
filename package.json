@@ -2,12 +2,12 @@
   "name": "prosper",
   "description": "Rocket League Garage trade aggregation & reporting CLI tool",
   "version": "0.2.6",
-  "author": "Jamie Straw <me@jamiestraw.com>",
+  "author": "Jamie Weavis <jamie.weavis@gmail.com>",
   "bin": {
     "prosper": "./index.js"
   },
   "bugs": {
-    "url": "https://github.com/jamiestraw/prosper/issues"
+    "url": "https://github.com/jamieweavis/prosper/issues"
   },
   "dependencies": {
     "capitalize": "^1.0.0",
@@ -20,7 +20,7 @@
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
-  "homepage": "https://github.com/jamiestraw/prosper#readme",
+  "homepage": "https://github.com/jamieweavis/prosper#readme",
   "keywords": [
     "buy",
     "cli",
@@ -37,7 +37,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamiestraw/prosper.git"
+    "url": "git+https://github.com/jamieweavis/prosper.git"
   },
   "scripts": {
     "test": "standard"

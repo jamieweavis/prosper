@@ -2,7 +2,7 @@
 
 > 💎 Rocket League Garage trade aggregation & reporting CLI tool
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard) [![npm-downloads](https://img.shields.io/npm/dt/prosper.svg)](https://www.npmjs.com/package/prosper) [![npm-version](https://img.shields.io/npm/v/prosper.svg)](https://www.npmjs.com/package/prosper) [![license](https://img.shields.io/github/license/jamiestraw/prosper.svg)](LICENSE.md)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard) [![npm-downloads](https://img.shields.io/npm/dt/prosper.svg)](https://www.npmjs.com/package/prosper) [![npm-version](https://img.shields.io/npm/v/prosper.svg)](https://www.npmjs.com/package/prosper) [![license](https://img.shields.io/github/license/jamieweavis/prosper.svg)](LICENSE.md)
 
 ## 📦 Install
 
@@ -80,7 +80,7 @@ $ prosper buy-offers 1 --paint "Titanium White"
 
 ## 🔗 Related
 
-[Dodgem](https://github.com/jamiestraw/dodgem) - 🎪 Rocket League Garage trade bumping automation CLI bot
+[Dodgem](https://github.com/jamieweavis/dodgem) - 🎪 Rocket League Garage trade bumping automation CLI bot
 ## 📄 License
 
 This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
